@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import useContainer from './useCounter';
+import Button from '@mui/material/Button';
 
-function App() {
+const App = () => {
+  const { count, increment, decrement } = useContainer(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     <h1>useCustomHooks</h1>
+      <Button variant="contained" color="warning" size="string" style={{display:"flex" ,flexDirection: "column" ,Alignitem:"center",margin:"30px" ,padding:"10px"}}>
+      Count: {count} 
+      </Button>
+      <Button variant="contained" onClick={increment} style={{margin:"10px"}}>Increment</Button>
+      <Button variant="contained" onClick={decrement}>Decrement</Button>
+      
+   
+    </>
   );
-}
+};
 
 export default App;
